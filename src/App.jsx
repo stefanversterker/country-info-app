@@ -13,6 +13,7 @@ function App() {
     const [countryPopulation, setCountryPopulation] = useState(0)
     const [region, setRegion] = useState('')
     const [flag, setFlag] = useState('')
+    const [country, setCountry] = useState([])
 
 
     async function fetchCountry() {
@@ -21,7 +22,8 @@ function App() {
                 params: { fields: 'name,population,region,flag' }
             });
 
-            const country = response.data[2];
+            const country = response.data;
+
 
             console.log(country);
             setCountryName(country.name);
@@ -44,12 +46,17 @@ function App() {
 
             <main>
                 <ul>
-                    <li className ={regionColor(region)}>
-                        {/*Waarom een img element? Een emoticon is toch gewoon tekst?*/}
-                        <p>{flag}</p>
-                        {`${countryName?.common || 'Unknown'} has a population of ${countryPopulation} people`}
 
+                    {country.map(() => {
+                    return <li key={countryName}>
+                        <div className ={regionColor(region)}>
+                            <span>{flag}</span>
+                            {countryName?.common || 'Unknown'}
+                        </div>
+                        <p>has a population of {countryPopulation} people</p>
                     </li>
+                })}
+
                 </ul>
                 <button type="button"
                         onClick={fetchCountry}

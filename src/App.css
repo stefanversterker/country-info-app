@@ -28,3 +28,7 @@
     color: #7c7b7b;
 }
 
+li {
+    list-style-type: none;
+}
+
