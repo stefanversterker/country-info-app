@@ -13,7 +13,7 @@
 }
 
 .europe {
-    color: yellow;
+    color: orange;
 }
 
 .asia {
@@ -25,6 +25,6 @@
 }
 
 .region-not-recognized {
-    color: black;
+    color: #7c7b7b;
 }
 

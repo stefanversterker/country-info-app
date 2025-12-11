@@ -1,13 +1,16 @@
 //
 
 function regionColor(region) {
-    switch (region) {
+
+    const normalized = region?.toLowerCase();
+
+    switch (normalized) {
         case 'americas' :
         case 'europe' :
         case 'asia' :
         case 'oceania' :
         case 'antarctic' :
-            return region;
+            return normalized;
         default :
             return "region-not-recognized"
     }

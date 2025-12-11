@@ -12,34 +12,24 @@ function App() {
     const [countryName, setCountryName] = useState('')
     const [countryPopulation, setCountryPopulation] = useState(0)
     const [region, setRegion] = useState('')
+    const [flag, setFlag] = useState('')
 
 
     async function fetchCountry() {
         try {
-            const responseName = await axios.get('https://restcountries.com/v3.1/all', {
-                params: {
-                    fields: 'name',
-                }
-            })
-            const responseAmount = await axios.get('https://restcountries.com/v3.1/all', {
-                params: {
-                    fields: 'population',
-                }
-            })
-            const responseRegion = await axios.get('https://restcountries.com/v3.1/all', {
-                params: {
-                    fields: 'region',
-                }
-            })
+            const response = await axios.get('https://restcountries.com/v3.1/all', {
+                params: { fields: 'name,population,region,flag' }
+            });
 
-            console.log(responseName.data[0])
-            console.log(responseAmount.data[0])
-            console.log(responseRegion.data[0])
-            setCountryName(responseName.data[0])
-            setCountryPopulation(responseAmount.data[0])
-            setRegion(responseRegion.data[0])
+            const country = response.data[2];
+
+            console.log(country);
+            setCountryName(country.name);
+            setCountryPopulation(country.population);
+            setRegion(country.region);
+            setFlag(country.flag)
         } catch (error) {
-            console.error(error)
+            console.error(error);
         }
     }
 
@@ -51,9 +41,15 @@ function App() {
                 </figure>
                 <h1>World Regions</h1>
             </header>
+
             <main>
                 <ul>
-                    <li className ={regionColor(region)}>{`${countryName.name?.common} has a population of ${countryPopulation.population} people`}</li>
+                    <li className ={regionColor(region)}>
+                        {/*Waarom een img element? Een emoticon is toch gewoon tekst?*/}
+                        <p>{flag}</p>
+                        {`${countryName?.common || 'Unknown'} has a population of ${countryPopulation} people`}
+
+                    </li>
                 </ul>
                 <button type="button"
                         onClick={fetchCountry}
