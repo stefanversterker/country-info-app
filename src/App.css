@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.americas {
+    color: green;
+}
+
+.africa {
+    color: blue;
+}
+
+.europe {
+    color: yellow;
+}
+
+.asia {
+    color: red;
+}
+
+.oceania {
+    color: purple;
+}
+
+.region-not-recognized {
+    color: black;
+}
+
