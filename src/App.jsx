@@ -24,6 +24,9 @@ function App() {
 
             const country = response.data;
 
+            country.sort((a, b) => a.population - b.population)
+
+            setCountry(country);
 
             console.log(country);
             setCountryName(country.name);
@@ -46,8 +49,12 @@ function App() {
             </header>
 
             <main>
+                <button type="button"
+                        onClick={fetchCountry}
+                >
+                    Land!
+                </button>
                 <ul>
-
                     {country.map((c) => (
                     <li key={c.name.common}>
                         <div className ={regionColor(c.region)}>
@@ -57,13 +64,8 @@ function App() {
                         <p>has a population of {c.population} people</p>
                     </li>))
                 })
-
                 </ul>
-                <button type="button"
-                        onClick={fetchCountry}
-                >
-                    Land!
-                </button>
+
             </main>
         </>
     )
