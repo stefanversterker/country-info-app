@@ -30,6 +30,7 @@ function App() {
             setCountryPopulation(country.population);
             setRegion(country.region);
             setFlag(country.flag)
+            setCountry(response.data)
         } catch (error) {
             console.error(error);
         }
@@ -47,15 +48,15 @@ function App() {
             <main>
                 <ul>
 
-                    {country.map(() => {
-                    return <li key={countryName}>
-                        <div className ={regionColor(region)}>
-                            <span>{flag}</span>
-                            {countryName?.common || 'Unknown'}
+                    {country.map((c) => (
+                    <li key={c.name.common}>
+                        <div className ={regionColor(c.region)}>
+                            <span>{c.flag}</span>
+                            {c.name.common || 'Unknown'}
                         </div>
-                        <p>has a population of {countryPopulation} people</p>
-                    </li>
-                })}
+                        <p>has a population of {c.population} people</p>
+                    </li>))
+                })
 
                 </ul>
                 <button type="button"
