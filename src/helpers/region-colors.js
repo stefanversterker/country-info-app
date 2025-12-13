@@ -9,6 +9,7 @@ function regionColor(region) {
         case 'europe' :
         case 'asia' :
         case 'oceania' :
+        case 'africa' :
         case 'antarctic' :
             return normalized;
         default :

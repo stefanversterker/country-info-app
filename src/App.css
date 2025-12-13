@@ -4,6 +4,27 @@
     box-sizing: border-box;
 }
 
+.full-page {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    padding: 20px;
+}
+
+.map-and-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    width: 100%
+}
+
+.flag {
+    width: 20px;
+}
+
 .americas {
     color: green;
 }
@@ -30,5 +51,13 @@
 
 li {
     list-style-type: none;
+}
+
+.country-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 2000px;
+    border: 2px dashed red;
 }
 
