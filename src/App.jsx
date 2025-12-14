@@ -22,6 +22,10 @@ function App() {
     const [singleCountryPopulation, setSingleCountryPopulation] = useState(0)
     const [singleCountryNeighbours, setSingleCountryNeighbours] = useState(0)
     const [singleCountryDomain, setSingleCountryDomain] = useState('')
+    const [searchCountry, setSearchCountry] = useState('')
+
+    console.log(searchCountry)
+
 
 
 
@@ -50,7 +54,7 @@ function App() {
 
     async function fetchSingleCountry() {
         try {
-            const response = await axios.get('https://restcountries.com/v3.1/name/nederland', {});
+            const response = await axios.get(`https://restcountries.com/v3.1/name/${searchCountry}`, {});
 
             const singleCountry = response.data;
             console.log(singleCountry[0].name.common);
@@ -103,6 +107,13 @@ function App() {
                 </section>
 
                 <section>
+                    <input
+                        type="text"
+                        name="search-country"
+                        placeholder="Bijvoorbeeld Nederland of Peru"
+                        value={searchCountry}
+                        onChange={(e) => setSearchCountry(e.target.value)}
+                    />
                     <button type="button"
                             onClick={fetchSingleCountry}
                     >
