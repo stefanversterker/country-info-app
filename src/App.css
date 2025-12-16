@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.full-page {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    padding: 20px;
+}
+
+.map-and-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    width: 100%
+}
+
+.flag {
+    width: 20px;
+}
+
+.americas {
+    color: green;
+}
+
+.africa {
+    color: blue;
+}
+
+.europe {
+    color: orange;
+}
+
+.asia {
+    color: red;
+}
+
+.oceania {
+    color: purple;
+}
+
+.region-not-recognized {
+    color: #7c7b7b;
+}
+
+li {
+    list-style-type: none;
+}
+
+.country-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 2000px;
+    border: 2px dashed red;
+}
+
